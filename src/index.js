@@ -6,15 +6,13 @@ class LazyImage extends React.Component {
   static defaultProps = {
     lazy: true,
     progressive: true,
+    placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      image: props.progressive ? 
-          props.placeholder ? 
-            props.placeholder : '' : 
-          props.src,
+      image: props.progressive ? props.placeholder : props.src,
       isLoaded: false,
       isLoading: false,
     };
