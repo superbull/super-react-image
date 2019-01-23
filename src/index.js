@@ -54,7 +54,12 @@ class LazyImage extends React.Component {
   };
 
   handleWaypointEnter = () => {
-    if (this.props.progressive && this.props.lazy && !this.state.isLoading && !this.state.isLoaded) {
+    if (
+      this.props.progressive 
+      && this.props.lazy 
+      && !this.state.isLoading 
+      && !this.state.isLoaded
+    ) {
       this.loadImage();
       this.setState({
         isLoading: true,
