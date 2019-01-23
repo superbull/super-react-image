@@ -15,9 +15,9 @@ class LazyImage extends React.Component {
           props.placeholder ? 
             props.placeholder : '' : 
           props.src,
+      isLoaded: false,
+      isLoading: false,
     };
-    this.isLoaded = false;
-    this.isLoading = false;
   }
 
   componentDidMount() {
@@ -36,9 +36,9 @@ class LazyImage extends React.Component {
   onLoad = () => {
     this.setState({
       image: this.image.src,
+      isLoading: false,
+      isLoaded: true,
     });
-    this.isLoading = false;
-    this.isLoaded = true;
   };
 
   onError = (errorEvent) => {
@@ -46,14 +46,19 @@ class LazyImage extends React.Component {
     if (onError) {
       onError(errorEvent);
     }
-    this.isLoading = false;
-    this.isLoaded = false;
+    
+    this.setState({
+      isLoading: false,
+      isLoaded: false,
+    });
   };
 
   handleWaypointEnter = () => {
-    if (this.props.progressive && this.props.lazy && !this.isLoading && !this.isLoaded) {
+    if (this.props.progressive && this.props.lazy && !this.state.isLoading && !this.state.isLoaded) {
       this.loadImage();
-      this.isLoading = true;
+      this.setState({
+        isLoading: true,
+      });
     }
   };
 
