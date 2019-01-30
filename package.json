@@ -2,6 +2,15 @@
   "name": "super-react-image",
   "version": "1.0.1",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superbull/super-react-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/superbull/super-react-image/issues"
+  },
+  "homepage": "https://superbull.github.io/super-react-image",
+  "author": "Deng Zhi Cheng <superbulldeng@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
